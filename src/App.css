@@ -17,3 +17,16 @@
   box-shadow: 10px 10px 32px -12px rgba(0, 0, 0, 0.75);
   font-size: 40px;
 }
+
+.digiName {
+  text-align: center;
+  font-size: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.imageBox {
+  display: flex;
+  margin-left: 33rem;
+  width: 500px;
+}

@@ -3,6 +3,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Header from './components/header.jsx';
 import Name from './components/digiName.jsx';
+import Image from './components/imageBox';
 
 function App() {
   const [digimon, setDigimon] = useState(false);
@@ -28,6 +29,8 @@ function App() {
     <div className="mainBox">
       <Header />
       <Name digimon={digimon[slideIndex]} index={slideIndex} />
+      <Image digimon={digimon[slideIndex]} index={slideIndex} />
+      <Buttons increment={increment} decrement={decrement}
     </div>
   )
 }
