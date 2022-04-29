@@ -5,7 +5,7 @@ function Image(props) {
   return (
     <div>
       {
-        <img className="imageBox" src={props.digimon && props.digimon.img} />
+        <img className="imageBox" src={props.digimon && props.digimon.img} alt="digimon" />
       }
     </div>
   )
