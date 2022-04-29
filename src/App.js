@@ -3,6 +3,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Header from './components/header.jsx';
 import Name from './components/digiName.jsx';
+import Name2 from './components/digiName2';
 import Image from './components/imageBox';
 import Buttons from './components/Buttons';
 
@@ -16,14 +17,6 @@ function App() {
       .then((result) => setDigimon(result));
   }, []);
 
-
-  function neverEnding() {
-    if (slideIndex === digimon[0].length) {
-      slideIndex = 0;
-    } else if (slideIndex === -1) {
-      slideIndex = digimon[0].length - 1;
-    }
-  }
 
   function increment() {
     if (slideIndex >= digimon.length - 1) {
@@ -48,6 +41,7 @@ function App() {
       <Name digimon={digimon[slideIndex]} index={slideIndex} />
       <Image digimon={digimon[slideIndex]} index={slideIndex} />
       <Buttons increment={increment} decrement={decrement} />
+      <Name2 digimon={digimon[slideIndex]} index={slideIndex} />
     </div>
   )
 }
