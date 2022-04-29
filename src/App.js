@@ -1,25 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import React from "react";
+import { useEffect, useState } from "react";
+import Header from './components/header.jsx';
+import Name from './components/digiName.jsx';
 
 function App() {
+  const [digimon, setDigimon] = useState(false);
+  const [slideIndex, setSlideIndex] = useState(0);
+
+  useEffect(() => {
+    fetch("https://digimon-api.vercel.app/api/digimon")
+      .then((res) => res.json())
+      .then((result) => setDigimon(result));
+  }, []);
+
+
+  function neverEnding() {
+    if (slideIndex === digimon[0].length) {
+      slideIndex = 0;
+    } else if (slideIndex === -1) {
+      slideIndex = digimon[0].length - 1;
+    }
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="mainBox">
+      <Header />
+      <Name digimon={digimon[slideIndex]} index={slideIndex} />
     </div>
-  );
+  )
 }
 
 export default App;
